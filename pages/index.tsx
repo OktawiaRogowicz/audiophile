@@ -1,7 +1,11 @@
 import { StyledButton} from "../libs/services/src";
 import {sanityClient} from "../libs/services/src/lib/getClient";
 
-const Home = ({ data }) => {
+interface Props {
+    data: any;
+}
+
+const Home = ({ data }: Props) => {
     console.log('data: ', data)
     return (
         <div>
