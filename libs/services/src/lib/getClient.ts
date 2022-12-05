@@ -9,5 +9,5 @@ export const previewClient = createClient({
   useCdn: false,
 })
 
-export const getClient = (usePreview: boolean) =>
-  usePreview ? previewClient : sanityClient
+// export const getClient = (usePreview: boolean) =>
+//   usePreview ? previewClient : sanityClient

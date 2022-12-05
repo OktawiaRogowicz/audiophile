@@ -1,14 +1,26 @@
 import { groq } from "next-sanity"
 import { sanityClient} from "./getClient";
 
-export const getSanityQuery = async (): Promise<string[]> => {
-    const query = groq`*[!(_id in path('drafts.**')) && _type == "page"] {
+export const getSanityQuery = async () => {
+    const query = groq`*[_type == "product"] {
         ...
     }`
 
     const data = await sanityClient.fetch(query)
 
-    return data
+    if (!data.length) {
+        return {
+            props: {
+                data: [],
+            },
+        }
+    } else {
+        return {
+            props: {
+                data,
+            },
+        }
+    }
 }
 
 
